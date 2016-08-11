@@ -6,7 +6,7 @@ As your AWS accounts/users grow you need to be able to generate reports around y
 
 Many of our customers ask us about solutions to make sure resources in AWS are propery tagged with the ability to terminate/delete them, or just notify someone if they don't comply with tagging policies that many companies today have in place.
 
-There are a couple of solutions already in place, we decided to build and open source sentinel because it is configurable and you dont need to provision any ec2 instances to run it as it uses these awesome AWS services :
+There are a couple of solutions already in place, we decided to build and open source tag-sentinel because it is configurable and you dont need to provision any ec2 instances to run it as it uses these awesome AWS services :
 
 - Cloudwatch events : to detect a series of supported events on AWS api calls, also to trigger targets in a scheduled fashion
 - SQS : to add events in json format for later processing
@@ -23,6 +23,6 @@ There are a couple of solutions already in place, we decided to build and open s
   - `pip to be added..`
 
 ## Installation
-This tool has been designed to add AWS resources as modules, so that they can be provisioned in separate, for example if you want sentinel to verify tag policies on RDS instances then there will be an RDS module. This is the list of supported modules
+This tool has been designed to add AWS resources as modules, so that they can be provisioned in separate, for example if you want tag-sentinel to verify tag policies on RDS instances then there will be an RDS module. This is the list of supported modules
 
 - [EC2 instances](services/ec2)
