@@ -1,0 +1,36 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "Tracks changes on certain ec2 events and pushes them into a queue (SQS) in json format for later processing",
+
+  "Resources": {
+    "SentinelEC2EventQueue": {
+      "Type":  "AWS::SQS::Queue",
+      "Properties": {
+        "QueueName": "SentinelEC2EventQueue"
+      }
+    },
+    "QueuePolicy": {
+      "Type": "AWS::SQS::QueuePolicy",
+      "Properties": {
+        "PolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": "*",
+              "Action": "SQS:*",
+              "Resource": { "Fn::GetAtt" : ["SentinelEC2EventQueue", "Arn"]}
+            }
+          ]
+         },
+      "Queues": [ { "Ref" : "SentinelEC2EventQueue"}]
+      }
+    }
+  },
+  "Outputs" : {
+    "QueueARN" : {
+      "Description" : "ARN of newly created SQS Queue",
+      "Value" : { "Fn::GetAtt" : ["SentinelEC2EventQueue", "Arn"]}
+    }
+  }
+}
