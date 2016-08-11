@@ -10,8 +10,12 @@ EC2 Sentinels are deployed in all supported regions by default:
 
 Run the make task to deploy to all regions
 
-`make deploy`
+```
+make deploy
+```
 
 If you want tag-sentinel to work in only one region you can pass the REGIONS variable as a parameter
 
-`make deploy REGIONS=ap-southeast-2`
+```
+make deploy REGIONS=ap-southeast-2
+```
