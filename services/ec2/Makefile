@@ -29,8 +29,3 @@ deploysentinel: $(TARGET_REGIONS)
 
 $(TARGET_REGIONS): region.%: %
 	AWS_DEFAULT_REGION=$< ./deploy_sentinel_stack.sh $(COLLECTOR_STACK)
-
-#Create s3 bucket for lambda deployments
-createBucket:
-	aws s3 mb s3://$(SOURCE_BUCKET) --region $(LAMBDA_REGION)
-	aws s3api put-bucket-versioning --bucket $(SOURCE_BUCKET) --versioning-configuration Status=Enabled
