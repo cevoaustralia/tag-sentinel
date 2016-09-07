@@ -15,14 +15,16 @@ There are a couple of solutions already in place, we decided to build and open s
 
 ## Dependencies
 - ##### Deployment
-  - Tested on multiple linux flavours
+  - Tested on ubuntu and MacOs (El Capitan)
   - [Make](https://www.gnu.org/software/make/)
   - [AWS Cli](https://aws.amazon.com/cli/)
+  - Vim
 
 - ##### Running lambda functions locally
   - `pip to be added..`
 
 ## Installation
-This tool has been designed to add AWS resources as modules, so that they can be provisioned in separate, for example if you want tag-sentinel to verify tag policies on RDS instances then there will be an RDS module. This is the list of supported modules
+This tool has been designed to add AWS resources as modules, so that they can be provisioned in separate, for example if you want tag-sentinel to verify tag policies on RDS instances then there will be an RDS module. This is the list of supported modules, start deploying the configuration first
 
+- [Configuration Module](config)
 - [EC2 instances](services/ec2)
