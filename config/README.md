@@ -25,7 +25,7 @@ This should be the first module to be deployed, it is easy to configure, you jus
   {
     "general" : {
       "logging-level" : "WARNING",
-      "sns-topic-name" : "SentinelSNSTopic",
+      "sns-topic-name" : "SentinelSNSTopic"
     },
     "ec2" : {
       "warning-only" : false,
@@ -35,7 +35,7 @@ This should be the first module to be deployed, it is easy to configure, you jus
       "pending-deletiong-tag" : "sentinel-pending-deletion",
       "report-tags" : [
         "Name", "aws:cloudformation:stack-name"
-      ],
+      ]
     },
 
     "slackNotifications" : {

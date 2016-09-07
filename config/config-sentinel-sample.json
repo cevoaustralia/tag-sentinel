@@ -1,7 +1,7 @@
 {
   "general" : {
     "logging-level" : "WARNING",
-    "sns-topic-name" : "SentinelSNSTopic",
+    "sns-topic-name" : "SentinelSNSTopic"
   },
   "ec2" : {
     "warning-only" : false,
@@ -11,7 +11,7 @@
     "pending-deletiong-tag" : "sentinel-pending-deletion",
     "report-tags" : [
       "Name", "aws:cloudformation:stack-name"
-    ],
+    ]
   },
 
   "slackNotifications" : {
