@@ -1,0 +1,23 @@
+{
+  "general" : {
+    "logging-level" : "WARNING",
+    "sns-topic-name" : "SentinelSNSTopic",
+  },
+  "ec2" : {
+    "warning-only" : false,
+    "action"  : "stop",
+    "queue-name" : "SentinelEC2EventQueue",
+    "tags-to-watch" : ["application"],
+    "pending-deletiong-tag" : "sentinel-pending-deletion",
+    "report-tags" : [
+      "Name", "aws:cloudformation:stack-name"
+    ],
+  },
+
+  "slackNotifications" : {
+    "endpoint": "your-slack-endpoint",
+    "channel": "#select-channel",
+    "botname": "Cevo-Sentinel",
+    "emoji": ":police_car:"
+  }
+}
