@@ -1,5 +1,5 @@
 ZIPFILE=sentinel_ec2_processor
-SOURCES=ec2_process_messages.py
+SOURCES=ec2_process_messages.py config-sentinel.json ../../../common/base_processor.py
 ZIP_ARGS="-9rq"
 
 zip: $(SOURCES)

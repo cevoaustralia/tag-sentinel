@@ -9,7 +9,7 @@ ZIPFILE		:= sentinel_ec2_processor
 ZIPDIR		:= lambda
 REV		:= $(shell git log -1 --pretty=format:%h)
 
-.PHONY: deploy deploysentinel createBucket $(REGIONS) $(TARGET_REGIONS)
+.PHONY: deploy deploysentinel createBucket getconfig zip $(REGIONS) $(TARGET_REGIONS)
 
 all:
 	@echo "make deploy: Create or update the CloudFormation stack"
@@ -17,7 +17,10 @@ all:
 zip:
 	$(MAKE) -C lambda $@
 
-uploadLambda: zip
+getconfig:
+	aws s3 cp s3://$(SOURCE_BUCKET)/config/config-sentinel.json lambda/config-sentinel.json
+
+uploadLambda: getconfig zip
 	aws s3 cp lambda/$(ZIPFILE).zip s3://$(SOURCE_BUCKET)/$(ZIPDIR)/$(ZIPFILE)-$(REV).zip
 
 deploylambda: uploadLambda
