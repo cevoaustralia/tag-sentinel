@@ -54,7 +54,7 @@ create_stack () {
     local OUT=$( aws cloudformation create-stack \
         --stack-name $STACK \
         --capabilities CAPABILITY_IAM \
-        --template-body file://cfstack/$STACK.json
+        --template-body file://cfstack/$STACK.yaml
     )
     wait_completion $STACK || return 1
 }
@@ -65,7 +65,7 @@ update_stack () {
     local OUT=$( aws cloudformation update-stack \
         --stack-name $STACK \
         --capabilities CAPABILITY_IAM \
-        --template-body file://cfstack/$STACK.json
+        --template-body file://cfstack/$STACK.yaml
     )
     wait_completion $STACK $LAMBDA_REGION || return 1
 }

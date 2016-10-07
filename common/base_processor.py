@@ -141,7 +141,7 @@ class base_processor(object) :
         """
         Configure logging level and format
         """
-        #Setting up logging level according to enforce-o-tron's json configuration
+        #Setting up logging level according to tag-sentinel json configuration
         logging.getLogger().setLevel(self.config.get("general").get("logging-level"))
         #Give logging some format love
         logging.basicConfig(format="[%(asctime)s] %(levelname)s : %(message)s")

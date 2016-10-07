@@ -57,7 +57,7 @@ create_stack () {
     local OUT=$( aws cloudformation create-stack \
         --stack-name $STACK \
         --capabilities CAPABILITY_IAM \
-        --template-body file://cfstack/$STACK.json \
+        --template-body file://cfstack/$STACK.yaml \
         --parameters \
             "ParameterKey=SentinelEC2SourceBucket,ParameterValue=$BUCKET" \
             "ParameterKey=SentinelEC2SourceKey,ParameterValue=$ZIPFILE"
@@ -72,7 +72,7 @@ update_stack () {
     local OUT=$( aws cloudformation update-stack \
         --stack-name $STACK \
         --capabilities CAPABILITY_IAM \
-        --template-body file://cfstack/$STACK.json \
+        --template-body file://cfstack/$STACK.yaml \
         --parameters \
             "ParameterKey=SentinelEC2SourceBucket,ParameterValue=$BUCKET" \
             "ParameterKey=SentinelEC2SourceKey,ParameterValue=$ZIPFILE"
